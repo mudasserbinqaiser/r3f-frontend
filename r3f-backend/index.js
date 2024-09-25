@@ -16,7 +16,7 @@ const voiceID = "echo";
 const app = express();
 app.use(express.json());
 app.use(cors());
-const port = 3002;
+const port = 3001;
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
