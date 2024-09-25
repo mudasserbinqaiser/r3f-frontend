@@ -42,14 +42,14 @@ export const Experience = () => {
   const { cameraZoomed } = useChat();
 
   useEffect(() => {
-    cameraControls.current.setLookAt(0, 2, 5, 0, 1.5, 0);
+    cameraControls.current.setLookAt(0, 1.5, 5, 0, -1, 5);
   }, []);
 
   useEffect(() => {
     if (cameraZoomed) {
-      cameraControls.current.setLookAt(0, 1.5, 1.5, 0, 1.5, 0, true);
+      cameraControls.current.setLookAt(0, 0.75, 5, 0, -1, 5, true);
     } else {
-      cameraControls.current.setLookAt(0, 2.2, 5, 0, 1.0, 0, true);
+      cameraControls.current.setLookAt(0, 1.5, 5, 0, -1, 5, true);
     }
   }, [cameraZoomed]);
   return (
@@ -60,7 +60,7 @@ export const Experience = () => {
       <Suspense>
         <Dots position-y={1.75} position-x={-0.02} />
       </Suspense>
-      <Avatar />
+      <Avatar position={[0, -2, 8]} scale={2}/>
       <ContactShadows opacity={0.7} />
     </>
   );

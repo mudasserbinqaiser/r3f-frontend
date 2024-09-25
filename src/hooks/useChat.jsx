@@ -1,29 +1,32 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const backendUrl = "http://localhost:3000";
+const backendUrl = "http://localhost:3002";
 
 const ChatContext = createContext();
 
 export const ChatProvider = ({ children }) => {
-  const chat = async (message) => {
-    setLoading(true);
-    const data = await fetch(`${backendUrl}/chat`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ message }),
-    });
-    const resp = (await data.json()).messages;
-    setMessages((messages) => [...messages, ...resp]);
-    setLoading(false);
-  };
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState();
   const [loading, setLoading] = useState(false);
   const [cameraZoomed, setCameraZoomed] = useState(true);
+
+  const chat = async (userMessage) => {
+    setLoading(true);
+    const eventSource = new EventSource(`${backendUrl}/chat-stream?message=${encodeURIComponent(userMessage)}`);
+
+    eventSource.onmessage = function (event) {
+      const messageData = JSON.parse(event.data);
+      setMessages((prevMessages) => [...prevMessages, messageData]);
+    };
+
+    eventSource.addEventListener("end", function () {
+      setLoading(false);
+      eventSource.close(); // Close the connection when done
+    });
+  };
+
   const onMessagePlayed = () => {
-    setMessages((messages) => messages.slice(1));
+    setMessages((prevMessages) => prevMessages.slice(1));
   };
 
   useEffect(() => {

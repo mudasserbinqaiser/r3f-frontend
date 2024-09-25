@@ -108,7 +108,7 @@ let setupMode = false;
 
 export function Avatar(props) {
   const { nodes, materials, scene } = useGLTF(
-    "/models/64f1a714fe61576b46f27ca2.glb"
+    "/models/66f142b1c85e7b864e2f2427.glb"
   );
 
   const { message, onMessagePlayed, chat } = useChat();
@@ -118,7 +118,7 @@ export function Avatar(props) {
   useEffect(() => {
     console.log(message);
     if (!message) {
-      setAnimation("Idle");
+      setAnimation("Breathing");
       return;
     }
     setAnimation(message.animation);
@@ -134,10 +134,12 @@ export function Avatar(props) {
 
   const group = useRef();
   const { actions, mixer } = useAnimations(animations, group);
+  // console.log(actions); // Log the actions to check if they are loaded correctly
   const [animation, setAnimation] = useState(
-    animations.find((a) => a.name === "Idle") ? "Idle" : animations[0].name // Check if Idle animation exists otherwise use first animation
+    animations.find((a) => a.name === "Breathing") ? "Breathing" : animations[0].name // Check if Idle animation exists otherwise use first animation
   );
   useEffect(() => {
+    // console.log('Current animation:', animation);
     actions[animation]
       .reset()
       .fadeIn(mixer.stats.actions.inUse === 0 ? 0 : 0.5)
@@ -306,7 +308,7 @@ export function Avatar(props) {
   }, []);
 
   return (
-    <group {...props} dispose={null} ref={group}>
+    <group {...props} dispose={null} ref = {group}>
       <primitive object={nodes.Hips} />
       <skinnedMesh
         name="Wolf3D_Body"
@@ -371,8 +373,9 @@ export function Avatar(props) {
         morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
       />
     </group>
-  );
+  )
 }
 
-useGLTF.preload("/models/64f1a714fe61576b46f27ca2.glb");
+useGLTF.preload('/models/66f142b1c85e7b864e2f2427.glb')
+
 useGLTF.preload("/models/animations.glb");

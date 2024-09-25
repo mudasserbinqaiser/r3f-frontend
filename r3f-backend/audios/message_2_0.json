@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "soundFile": "/root/Digital_Human/r3f-frontend/r3f-backend/audios/message_2_0.wav",
+    "duration": 4.44
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.03, "value": "X" },
+    { "start": 0.03, "end": 0.11, "value": "B" },
+    { "start": 0.11, "end": 0.19, "value": "A" },
+    { "start": 0.19, "end": 0.30, "value": "C" },
+    { "start": 0.30, "end": 0.86, "value": "B" },
+    { "start": 0.86, "end": 1.07, "value": "C" },
+    { "start": 1.07, "end": 1.14, "value": "E" },
+    { "start": 1.14, "end": 1.24, "value": "A" },
+    { "start": 1.24, "end": 1.58, "value": "B" },
+    { "start": 1.58, "end": 1.66, "value": "A" },
+    { "start": 1.66, "end": 1.79, "value": "D" },
+    { "start": 1.79, "end": 1.93, "value": "B" },
+    { "start": 1.93, "end": 2.00, "value": "E" },
+    { "start": 2.00, "end": 2.28, "value": "B" },
+    { "start": 2.28, "end": 2.49, "value": "E" },
+    { "start": 2.49, "end": 2.70, "value": "B" },
+    { "start": 2.70, "end": 2.86, "value": "X" },
+    { "start": 2.86, "end": 2.99, "value": "B" },
+    { "start": 2.99, "end": 3.20, "value": "F" },
+    { "start": 3.20, "end": 3.27, "value": "D" },
+    { "start": 3.27, "end": 3.34, "value": "B" },
+    { "start": 3.34, "end": 3.42, "value": "A" },
+    { "start": 3.42, "end": 3.60, "value": "E" },
+    { "start": 3.60, "end": 3.74, "value": "B" },
+    { "start": 3.74, "end": 3.81, "value": "G" },
+    { "start": 3.81, "end": 4.30, "value": "B" },
+    { "start": 4.30, "end": 4.44, "value": "X" }
+  ]
+}
